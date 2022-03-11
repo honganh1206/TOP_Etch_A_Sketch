@@ -1,6 +1,7 @@
 const container = document.getElementById("container");
 
 function makeGrid(rows, cols) {
+  // set new CSS property 
   container.style.setProperty('--grid-rows', rows);
   container.style.setProperty('--grid-cols', cols);
   for (c = 0; c < (rows * cols); c++) {
