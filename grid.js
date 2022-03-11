@@ -1,22 +1,12 @@
-// consts and vars
-const container = document.getElementById("container")
-let rows = document.getElementsByClassName("gridRow")
-let cells = document.getElementsByClassName("gridCell")
+const container = document.getElementById("container");
 
-function makeRows(rowNum) {
-  for (i = 0; i < rowNum; i++) {
-    let row = document.createElement("div");
-    container.appendChild(row).className = "gridRow";
+function makeGrid(rows, cols) {
+  container.style.setProperty('--grid-rows', rows);
+  container.style.setProperty('--grid-cols', cols);
+  for (c = 0; c < (rows * cols); c++) {
+    let cell = document.createElement("div");
+    container.appendChild(cell).className = "grid-item";
   };
 };
 
-function makeColumns(colNum) {
-  for (i = 0; i < rows.length; i++) {
-    for (j = 0; j < colNum; j++) {
-
-    }
-  }
-}
-
-
-
+makeGrid(16, 16);
