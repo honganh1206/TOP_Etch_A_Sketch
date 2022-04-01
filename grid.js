@@ -15,7 +15,7 @@ const colors = { black: 'black' }
 e => e.target.classList.add(colors[currentColor])
 
 // Creates a default grid sized 16x16
-function defaultGrid() {
+function createGrid() {
   makeRows(16);
   makeColumns(16);
 }
@@ -49,5 +49,5 @@ function changeColor() {
 }
 
 
-defaultGrid();
+createGrid();
 
