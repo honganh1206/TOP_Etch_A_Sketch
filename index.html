@@ -10,23 +10,27 @@
 </head>
 
 <body>
-  <section class="black">
-    <h1>
-      <center> Etch-a-Sketch</center>
-    </h1>
-  </section>
-  <section>
-    <div class="buttons">
-      <button id="rainbow">Rainbow</button>
-      <button id="black">Black</button>
-      <button id="reset">Reset</button>
+  <h1>
+    <center> Etch-a-Sketch </center>
+  </h1>
+  <div class="buttons">
+    <button class="color-choice" data-color="black" type="button">Black</button>
+    <button class="color-choice" data-color="rainbow" type="button">Rainbow</button>
+    <button class="color-choice" data-color="gray" type="button">Gray Scale</button>
+    <button class="color-choice" data-color="eraser" type="button">Eraser</button>
+    <button class="color-choice">Pick: <input type="color" value="#ff0000" id="input-color"></button>
+  </div>
+  <div class="container-wrapper">
+    <div id="container"></div>
+  </div>
+  <div class="grid-options">
+    <button class="clear" type="button">Clear</button>
+    <div class="size-container">
+      <p>Pixel Size</p>
+      <input type="range" min="4" max="100" value="15" id="sizeRange" class="slider">
+      <p>Smallest to Largest</p>
     </div>
-  </section>
-  <section>
-    <div id="container">
-    </div>
-  </section>
-
+  </div>
   <script src="grid.js"></script>
 </body>
 
