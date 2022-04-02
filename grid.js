@@ -16,9 +16,9 @@ let currentColor = 'black'
 function createGrid(num) {
   makeRows(num);
   makeColumns(num);
-  // Hover mouse over to draw
-  let gridPixels = container.querySelectorAll("div");
-  gridPixels.forEach(gridPixel => gridPixel.addEventListener('mouseover', colorGrid));
+
+  // let gridPixels = container.querySelectorAll("div");
+  // gridPixels.forEach(gridPixel => gridPixel.addEventListener('mouseover', colorGrid));
 }
 
 // Takes (rows, columns) input and makes a grid
