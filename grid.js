@@ -13,32 +13,21 @@ let currentColor = 'black'
 
 // FUNCTIONS
 // Creates a default grid sized 16x16
-function createGrid(num) {
-  makeRows(num);
-  makeColumns(num);
-
-  // let gridPixels = container.querySelectorAll("div");
-  // gridPixels.forEach(gridPixel => gridPixel.addEventListener('mouseover', colorGrid));
-}
-
-// Takes (rows, columns) input and makes a grid
-function makeRows(rowNum) {
-  // Creates rows
+function createGrid(rowNum, colNum) {
   for (r = 0; r < rowNum; r++) {
     let row = document.createElement("div");
     container.appendChild(row).className = "gridRow";
   };
-};
-
-// Creates columns
-function makeColumns(cellNum) {
   for (i = 0; i < rows.length; i++) {
-    for (j = 0; j < cellNum; j++) {
+    for (j = 0; j < colNum; j++) {
       let newCell = document.createElement("div");
       rows[j].appendChild(newCell).className = "gridCell";
     };
   };
-};
+  let gridPixels = container.querySelectorAll("div");
+  gridPixels.forEach(gridPixel => gridPixel.addEventListener('mouseover', colorGrid));
+}
+
 
 // color options + eraser
 function colorGrid() {
@@ -121,7 +110,7 @@ function buttonStandard() {
 }
 // EXECUTIONS
 // On Page Load
-createGrid(16);
+createGrid(16, 16);
 // Event listeners
 // 3 modes each btn: click/over/out
 btnReset.addEventListener('click', eraseAllColor);
