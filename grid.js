@@ -1,4 +1,4 @@
-// Sets important constants and variables
+// Sets global constants and variables
 
 const container = document.getElementById("container");
 let rows = document.getElementsByClassName("gridRow");
@@ -11,6 +11,7 @@ const btnColorPicker = document.querySelector("#input-color");
 // change the trail color
 let currentColor = 'black'
 
+
 // FUNCTIONS
 // Creates a default grid sized 16x16
 function createGrid(rowNum, colNum) {
@@ -18,20 +19,19 @@ function createGrid(rowNum, colNum) {
     let row = document.createElement("div");
     container.appendChild(row).className = "gridRow";
   };
-  for (i = 0; i < rows.length; i++) {
+  for (i = 0; i < rowNum; i++)
     for (j = 0; j < colNum; j++) {
-      let newCell = document.createElement("div");
-      rows[j].appendChild(newCell).className = "gridCell";
+      let newCells = document.createElement("div");
+      rows[j].appendChild(newCells).className = "gridCell";
+      //   newCells.addEventListener('mouseover',
+      //     e => e.target.classList.add('my-color'))
     };
-  };
-  let gridPixels = container.querySelectorAll("div");
-  gridPixels.forEach(gridPixel => gridPixel.addEventListener('mouseover', colorGrid));
-}
-
-
+  let gridPixels = document.getElementsByClassName("gridCell");
+  gridPixels.forEach(gridPixel => gridPixel.addEventListener('mouseover', colorGrid))
+};
 // color options + eraser
 function colorGrid() {
-  switch (color) {
+  switch (currentColor) {
     case "rainbow":
       this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
       this.classList.remove("gray");

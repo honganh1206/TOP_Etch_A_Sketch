@@ -5,4 +5,7 @@
   display: inline-block;
   margin-right: 2px;
 }
+input[type="currentColor" i] {
+  background-color: black;
+}
 
