@@ -5,7 +5,10 @@
   display: inline-block;
   margin-right: 2px;
 }
-input[type="currentColor" i] {
+.my-color {
   background-color: black;
+}
+.eraser {
+  background-color: white;
 }
 
