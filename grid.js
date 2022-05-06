@@ -1,63 +1,32 @@
 // Sets global constants and variables
-
-const container = document.getElementById("container");
-let rows = document.getElementsByClassName("gridRow");
-let cells = document.getElementsByClassName("gridCell");
-let slider = document.querySelector("#sizeRange")
-// create buttons
-const btnReset = document.getElementsByClassName("reset")
-const btnSColor = document.querySelectorAll(".color-choice")
-const btnColorPicker = document.querySelector("#input-color");
-// change the trail color
+const container = document.querySelector(".container");
+const btnReset = document.querySelector(".reset")
 let currentColor = 'black'
 
 
 // FUNCTIONS
 // Creates a default grid sized 16x16
-function createGrid(rowNum, colNum) {
-  for (r = 0; r < rowNum; r++) {
-    let row = document.createElement("div");
-    container.appendChild(row).className = "gridRow";
-  };
-  for (i = 0; i < rowNum; i++)
-    for (j = 0; j < colNum; j++) {
-      let newCells = document.createElement("div");
-      rows[j].appendChild(newCells).className = "gridCell";
-      newCells.addEventListener('mouseover',
-        e => e.target.classList.add('my-color'))
-    };
-  // this does not work somehowv
-  // let gridPixels = container.querySelectorAll("div");
-  // Array.from(gridPixels).forEach(gridPixel => {
-  //   addEventListener('mouseover', colorGrid)
-  // })
-  // Testing => empty string
-  // Test with typeof => still working
-  // let gridPixels = document.getElementsByClassName("gridCell")
-  // for (i = 0; i < gridPixels.length; i++) {
-  //   console.log(typeof gridPixels[i])
-  //  }
-};
+function createGrid(gridNumber) {
+  let gridArea = gridNumber * gridNumber;
+  for (let i = 1; i <= gridArea; i++) {
+    let gridItem = document.createElement('div');
+    container.style.gridTemplateColumns = `repeat(${gridNumber}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${gridNumber}, 1fr)`;
+    container.insertAdjacentElement('beforeend', gridItem)
+  }
+  // var gridPixels = container.querySelectorAll('div');
+  // gridPixels.forEach(gridPixel => gridPixel.addEventListener('mouseover', 
+  // e => e.target.classlist.add('my-color')));
+} 
 // clear grid
 function eraseAllColor() {
-  let gridPixels = document.getElementsByClassName("gridCell");
-  for (let i = 0; i < gridPixels.length; i++) {
-    // gridPixels[i].style.backgroundColor = "#ffffff"
-    console.log(typeof gridPixels[i])
-  }
+  let gridPixels = document.querySelectorAll("div");
+  gridPixels.forEach(gridPixel => gridPixel.style.backgroundColor = "#ffffff")  
 }
+
+
 // EXECUTIONS
 // On Page Load
-createGrid(16, 16);
+createGrid(16);
 // Event listeners
-// 3 modes each btn: click/over/out
 btnReset.addEventListener('click', eraseAllColor);
-// btnReset.addEventListener('mouseover', buttonHover);
-// btnReset.addEventListener('mouseout', buttonStandard);
-// btnSColor.forEach(btnColor => btnColor.addEventListener('click', changeColor));
-// btnSColor.forEach(btnColor => btnColor.addEventListener('mouseover', buttonHover));
-// btnSColor.forEach(btnColor => btnColor.addEventListener('mouseout', buttonStandard));
-// slider.addEventListener('mouseup', pixelSize);
-// btnColorPicker.addEventListener('change', userColorSelection, false);
-// btnColorPicker.addEventListener('input', userColorSelection, false);
-
