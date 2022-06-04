@@ -1,14 +1,146 @@
-.gridCell {
-  border: 1px solid gray;
-  min-width: 20px;
-  min-height: 20px;
-  display: inline-block;
-  margin-right: 2px;
+:root {
+  --content-width: 400px;
 }
-.my-color {
-  background-color: black;
-}
-.eraser {
-  background-color: white;
+body {
+  background-color: #808080;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
+/* Pixel container */
+
+.container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+}
+.container-wrapper {
+  height: 75vw;
+  width: 75vw;
+  max-height: var(--content-width);
+  max-width: var(--content-width);
+  margin: 30px auto;
+  position: relative;
+}
+
+.container-wrapper:before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  bottom: -15px;
+  right: 15px;
+  left: 15px;
+  background-color: #ffffff;
+    /* place behind a heading? */
+  z-index: -1;
+}
+.container-wrapper::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  bottom: -15px;
+  right: 15px;
+  left: 15px;
+  background-color: #ffffff;
+    /* place behind a heading? */
+  z-index: -2;
+}
+/* Pixels or divs   */
+/* ">" means selecting the first descendant of the parent element / "*" means CSS universal selector   */
+.container > * {
+  height: 100%;
+  background-color: #ffffff;
+  transition: all 0.5s;
+}
+
+/* Buttons & Button wrapper */
+button {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin: 5px;
+  color: #000000;
+  line-height: 27px;
+  background-color: #ffffff;
+  border: 1px solid;
+}
+button:focus, input:focus {
+  outline: none;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: calc(75vw + 40px);
+  max-width: calc(var(--content-width) + 40px);
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.buttons > * {
+ flex: 1 1 auto;
+}
+
+#input-color {
+  border: none; 
+  height: 25px;
+  width: 25px;
+  padding: 0;
+}
+
+input[type="color" i] {
+  background-color: #000000;
+}
+
+/* options under pixel container */
+.grid-options {
+  width: calc(75vw + 40px);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  align-items: center;
+  max-width: calc(var(--content-width) + 40px);
+}
+
+.grid-options > * {
+  flex: 1 1 auto;
+}
+
+/* slider  */
+
+.size-container {
+  width: 55vw;
+  padding-left: 10px;
+  margin-right: 5px;
+}
+
+.size-container p {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  margin: 7px 0;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  outline: none;
+  background: blue;
+  transform: rotate(180deg);
+  transition: 0.2s;
+  border-radius: 7px;
+}
+
+/* Firefox  */
+slider::-moz-range-thumb {
+  width: 15px;
+  height: 30px;
+  background: white;
+  border-radius: 7px;
+  cursor: pointer;
+}
